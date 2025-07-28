@@ -109,3 +109,5 @@ function repeatbtn() {
     txt = String(letter)
     speak(txt, 0.8, 0.8)
 }
+
+   
