@@ -27,9 +27,11 @@ let score = 0
             const utterance = new SpeechSynthesisUtterance(txt)
             utterance.pitch = .5
             window.speechSynthesis.speak(utterance)
+            document.getElementById('correction').textContent = ""
             random() 
         } else {
             txt = "Wrong"
+            document.getElementById('correction').textContent = "You got this wrong: "+ letter
             const utterance = new SpeechSynthesisUtterance(txt)
             utterance.pitch = .5
             window.speechSynthesis.speak(utterance)
