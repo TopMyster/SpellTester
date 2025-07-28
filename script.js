@@ -67,7 +67,7 @@ if (window.speechSynthesis.getVoices().length === 0) {
            
         } else {
             txt = "Almost there! Try again! ,"
-            document.getElementById('correction').textContent = "Last question: "+ letter
+            document.getElementById('correction').textContent = "Last missed question: "+ letter
             speak(txt, 0.8, 0.8)
             random() 
             hearts -= 1
