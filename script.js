@@ -24,7 +24,7 @@ function getPreferredVoice() {
     if (femaleVoice) return femaleVoice;
     return voices[0] || null;
 }
-function speak(text, pitch = 0.8, rate = 0.9) {
+function speak(text, pitch = 0.3, rate = 0.3) {
     const utterance = new SpeechSynthesisUtterance(text);
     const voice = getPreferredVoice();
     
@@ -43,7 +43,7 @@ function random() {
     randomnum = Math.floor(Math.random() * letters.length)
     letter = letters[randomnum]
     txt = String(letter)
-    speak(txt, 0.8, 0.8)
+    speak(txt, 0.9, 0.2)
     console.log(String(letter))
 }
 
@@ -67,7 +67,7 @@ if (window.speechSynthesis.getVoices().length === 0) {
            
         } else {
             txt = "Almost there! Try again! ,"
-            document.getElementById('correction').textContent = "Almost there: "+ letter
+            document.getElementById('correction').textContent = "Last question: "+ letter
             speak(txt, 0.8, 0.8)
             random() 
             hearts -= 1
@@ -85,11 +85,11 @@ if (window.speechSynthesis.getVoices().length === 0) {
 
  setInterval(function() {
     if (hearts === 1) {
-       document.getElementById('hearts').textContent = "❤️"
+       document.getElementById('hearts').textContent = " ❤️"
     } else if (hearts === 2) {
-        document.getElementById('hearts').textContent = "❤️❤️"
+        document.getElementById('hearts').textContent = " ❤️❤️"
     } else if (hearts === 3) {
-        document.getElementById('hearts').textContent = "❤️❤️❤️"
+        document.getElementById('hearts').textContent = " ❤️❤️❤️"
     }
     if (hearts === 0) {
         window.location.href = 'gameover.html'
