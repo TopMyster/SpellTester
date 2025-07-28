@@ -8,8 +8,8 @@
 </head>
 <body>
     <h1 id="welcome"></h1>
-    <a href="add.html"><button>New Words</button></a>
-    <a href="game.html"><button>Resume Session</button></a>
+    <a href="add.html"><button>Add Words</button></a>
+    <a href="game.html"><button>Start Session</button></a>
     <h1>🔥<span id="streak"></span></h2>
     <script>
         window.onload = function() {
@@ -28,40 +28,40 @@
 }
 
         function getToday() {
-  return new Date().toDateString();
+  return new Date().toDateString()
 }
 
 function updateStreak() {
-  const lastDate = localStorage.getItem('lastDate');
-  let streak = Number(localStorage.getItem('streak')) || 0;
-  const today = getToday();
+  const lastDate = localStorage.getItem('lastDate')
+  let streak = Number(localStorage.getItem('streak')) || 0
+  const today = getToday()
 
   if (lastDate === today) {
-    return streak;
+    return streak
   }
 
   if (lastDate && (new Date(today) - new Date(lastDate) === 86400000)) {
-    streak += 1;
+    streak += 1
   } else {
-    streak = 1;
+    streak = 1
   }
 
-  localStorage.setItem('lastDate', today);
-  localStorage.setItem('streak', streak);
-  return streak;
+  localStorage.setItem('lastDate', today)
+  localStorage.setItem('streak', streak)
+  return streak
 }
 
 function showStreak() {
-  const streak = localStorage.getItem('streak') || 0;
+  const streak = localStorage.getItem('streak') || 0
   document.getElementById('streak').textContent = streak
 }
 
 setInterval(function() {
-  updateStreak();
-  showStreak();
-}, 1000);
+  updateStreak()
+  showStreak()
+}, 1000)
 
-showStreak();
+showStreak()
 
     </script>
 </body>

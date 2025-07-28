@@ -1,41 +1,74 @@
 let score = 0
-    let letter
-    let txt
-    let letters = []
-    let randomnum
-    let userinput = document.getElementById('userinput').value
-    letters = JSON.parse(localStorage.getItem('letters'));
-    let hearts = 3
+let letter
+let txt
+let letters = []
+let randomnum
+let userinput = document.getElementById('userinput').value
+letters = JSON.parse(localStorage.getItem('letters'));
+let hearts = 3
+
+function getPreferredVoice() {
+    const voices = window.speechSynthesis.getVoices();
+    const preferredVoices = ['Samantha',];
     
-    function random() {
-        randomnum = Math.floor(Math.random() * letters.length)
-        letter = letters[randomnum]
-        txt = String(letter)
-        const utterance = new SpeechSynthesisUtterance(txt)
-        utterance.pitch = .6
-        window.speechSynthesis.speak(utterance)
-        console.log(String(letter))
+    for (let preferred of preferredVoices) {
+        const voice = voices.find(v => v.name.includes(preferred));
+        if (voice) return voice;
     }
+
+    const femaleVoice = voices.find(v => 
+        v.name.toLowerCase().includes('female') || 
+        v.name.toLowerCase().includes('woman') ||
+        v.gender === 'female'
+    );
+    if (femaleVoice) return femaleVoice;
+    return voices[0] || null;
+}
+function speak(text, pitch = 0.8, rate = 0.9) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    const voice = getPreferredVoice();
+    
+    if (voice) {
+        utterance.voice = voice;
+    }
+    
+    utterance.pitch = pitch
+    utterance.rate = rate
+    utterance.volume = 1.0
+    utterance.lang = 'en-US'
+    window.speechSynthesis.speak(utterance)
+}
+
+function random() {
+    randomnum = Math.floor(Math.random() * letters.length)
+    letter = letters[randomnum]
+    txt = String(letter)
+    speak(txt, 0.8, 0.8)
+    console.log(String(letter))
+}
+
+if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.addEventListener('voiceschanged', function() {
+        random()
+    })
+} else {
     random()
+}
 
 
     document.getElementById('submition').addEventListener('click', function() {
         let userinput = document.getElementById('userinput').value
         if (userinput === letter) { 
             score += 5
-            txt = "Correct"
-            const utterance = new SpeechSynthesisUtterance(txt)
-            utterance.pitch = .5
-            window.speechSynthesis.speak(utterance)
+            txt = "Correct, Great Job! ,"
+            speak(txt, 0.8, 0.8)
             document.getElementById('correction').textContent = "Great Job"
             random() 
            
         } else {
-            txt = "Wrong"
-            document.getElementById('correction').textContent = "Almost there! Try again!: "+ letter
-            const utterance = new SpeechSynthesisUtterance(txt)
-            utterance.pitch = .5
-            window.speechSynthesis.speak(utterance)
+            txt = "Almost there! Try again! ,"
+            document.getElementById('correction').textContent = "Almost there: "+ letter
+            speak(txt, 0.8, 0.8)
             random() 
             hearts -= 1
         }
@@ -74,7 +107,5 @@ function addword() {
 
 function repeatbtn() {
     txt = String(letter)
-    const utterance = new SpeechSynthesisUtterance(txt)
-    utterance.pitch = .6
-    window.speechSynthesis.speak(utterance)
+    speak(txt, 0.8, 0.8)
 }
