@@ -59,6 +59,19 @@ input:hover {
 h2 {
     font-weight: bold;
     flex-direction: row;
+    margin-right: 15px;
+}
+
+h3 {
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+#status {
+    flex-direction: row;
+    position: absolute;
+    display: flex;
+    right: 0px;
 }
 
 #correction {
@@ -83,7 +96,7 @@ h2 {
     font-size: 80px;
     border-radius: 30px;
     margin-bottom: 45px;
-    margin-top: 10px;
+    margin-top: 110px;
     border: 2px solid rgb(213, 213, 213);
     background-color: rgb(235, 235, 235);
    
