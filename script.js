@@ -27,11 +27,11 @@ let score = 0
             const utterance = new SpeechSynthesisUtterance(txt)
             utterance.pitch = .5
             window.speechSynthesis.speak(utterance)
-            document.getElementById('correction').textContent = ""
+            document.getElementById('correction').textContent = "Great Job"
             random() 
         } else {
             txt = "Wrong"
-            document.getElementById('correction').textContent = "You got this wrong: "+ letter
+            document.getElementById('correction').textContent = "Almost there! Try again!: "+ letter
             const utterance = new SpeechSynthesisUtterance(txt)
             utterance.pitch = .5
             window.speechSynthesis.speak(utterance)
@@ -56,4 +56,11 @@ function addword() {
    letters.push(String(document.getElementById('newword').value))
     localStorage.setItem('letters', JSON.stringify(letters));
    document.getElementById('words').textContent = letters
+}
+
+function repeatbtn() {
+    txt = String(letter)
+    const utterance = new SpeechSynthesisUtterance(txt)
+    utterance.pitch = .6
+    window.speechSynthesis.speak(utterance)
 }

@@ -58,8 +58,33 @@ input:hover {
 
 h2 {
     font-weight: bold;
+    flex-direction: row;
 }
 
 #correction {
     color: rgb(255, 46, 46);
+}
+
+#closebtn {
+    left: 8px;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 46, 46);
+    border: none;
+}
+
+#closebtn:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 46, 46);
+    border: none;
+}
+
+#repeat {
+    font-size: 80px;
+    border-radius: 30px;
+    margin-bottom: 45px;
+    margin-top: 10px;
+    border: 2px solid rgb(213, 213, 213);
+    background-color: rgb(235, 235, 235);
+   
 }
