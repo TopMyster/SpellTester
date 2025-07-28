@@ -78,12 +78,10 @@ h3 {
     position: fixed;
 }
 
-#correction {
-    color: rgb(255, 46, 46);
-}
 
 #closebtn {
-    left: 8px;
+    top: 32px;
+    left: 12px;
     position: absolute;
     color: rgb(255, 255, 255);
     background-color: rgb(255, 46, 46);
@@ -121,4 +119,17 @@ h1 {
 #words {
     font-size: 18px;
     color: rgb(62, 62, 62);
+}
+
+#timer {
+    position: absolute;
+    left: 105px;
+}
+
+#wrong {
+    color: rgb(214, 1, 1);
+}
+
+#right {
+    color: rgb(3, 184, 3);
 }

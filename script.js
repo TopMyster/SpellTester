@@ -5,7 +5,9 @@ let letters = []
 let randomnum
 let userinput = document.getElementById('userinput').value
 letters = JSON.parse(localStorage.getItem('letters'));
-let hearts = 3
+let hearts = 4
+let wrong = 0
+let right = 0
 
 function getPreferredVoice() {
     const voices = window.speechSynthesis.getVoices();
@@ -62,15 +64,19 @@ if (window.speechSynthesis.getVoices().length === 0) {
             score += 5
             txt = "Correct, Great Job! ,"
             speak(txt, 0.8, 0.8)
-            document.getElementById('correction').textContent = "Great Job"
-            random() 
+            document.getElementById('correction').style.color = 'rgba(60, 200, 88, 1)'
+            document.getElementById('correction').textContent = "Great Job!"
+            random()
+            right += 1 
            
         } else {
             txt = "Almost there! Try again! ,"
             document.getElementById('correction').textContent = "Last missed question: "+ letter
+            document.getElementById('correction').style.color = 'rgba(225, 43, 43, 1)'
             speak(txt, 0.8, 0.8)
             random() 
             hearts -= 1
+            wrong += 1
         }
     })
 
@@ -90,9 +96,13 @@ if (window.speechSynthesis.getVoices().length === 0) {
         document.getElementById('hearts').textContent = " ❤️❤️"
     } else if (hearts === 3) {
         document.getElementById('hearts').textContent = " ❤️❤️❤️"
+    } else if (hearts === 4) {
+        document.getElementById('hearts').textContent = " ❤️❤️❤️❤️"
     }
     if (hearts === 0) {
         window.location.href = 'gameover.html'
+        localStorage.setItem('right', right);
+        localStorage.setItem('wrong', wrong);
     }
 }, 1000);
 
@@ -110,4 +120,14 @@ function repeatbtn() {
     speak(txt, 0.8, 0.8)
 }
 
-   
+let mins = 10
+document.getElementById('mins').textContent = mins
+setInterval(function() {
+    mins -= 1
+    document.getElementById('mins').textContent = mins
+    if (mins === 0) {
+        window.location.href = 'gameover.html'
+    }
+}, 60000)
+
+
