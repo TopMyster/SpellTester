@@ -29,17 +29,15 @@ let score = 0
             window.speechSynthesis.speak(utterance)
             document.getElementById('correction').textContent = "Great Job"
             random() 
+           
         } else {
             txt = "Wrong"
             document.getElementById('correction').textContent = "Almost there! Try again!: "+ letter
             const utterance = new SpeechSynthesisUtterance(txt)
             utterance.pitch = .5
             window.speechSynthesis.speak(utterance)
-            random()
-        }
-
-        if (hearts === 0) {
-            window.location.href = 'gameover.html'
+            random() 
+            hearts -= 1
         }
     })
 
@@ -52,10 +50,26 @@ let score = 0
     }
 }, 1000);
 
+ setInterval(function() {
+    if (hearts === 1) {
+       document.getElementById('hearts').textContent = "❤️"
+    } else if (hearts === 2) {
+        document.getElementById('hearts').textContent = "❤️❤️"
+    } else if (hearts === 3) {
+        document.getElementById('hearts').textContent = "❤️❤️❤️"
+    }
+    if (hearts === 0) {
+        window.location.href = 'gameover.html'
+    }
+}, 1000);
+
 function addword() {
-   letters.push(String(document.getElementById('newword').value))
+    const input = document.getElementById('newword').value;
+    const newWords = input
+        .split(',')
+    letters.push(...newWords);
     localStorage.setItem('letters', JSON.stringify(letters));
-   document.getElementById('words').textContent = letters
+    document.getElementById('words').textContent = letters;
 }
 
 function repeatbtn() {

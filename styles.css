@@ -88,3 +88,11 @@ h2 {
     background-color: rgb(235, 235, 235);
    
 }
+
+h1 {
+    font-size: 70px;
+}
+
+#streak {
+    color: rgb(255, 128, 0);
+}
