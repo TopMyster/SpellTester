@@ -117,6 +117,7 @@ h1 {
 
 #streak {
     color: rgb(255, 128, 0);
+    position: relative;
 }
 
 #words {
@@ -136,4 +137,11 @@ h1 {
 
 #right {
     color: rgb(3, 184, 3);
+}
+
+#day {
+    font-size: 40px;
+    bottom: 25px;
+    position: relative;
+    color: rgb(236, 106, 36);
 }
