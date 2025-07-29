@@ -6,27 +6,28 @@ body {
 
 
 button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: 3px solid rgb(181, 181, 181);
     background-color: transparent;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: bold;
     color: rgb(194, 194, 194);
     transition: .2s;
     margin-right: 5px;
+    font-size: 18px;
 }
 
 button:hover {
     color: rgb(69, 222, 100);
     border: 3px solid rgb(69, 222, 100);
-    scale: 110%;
+    scale: 107%;
     transition: .2s;
     color: rgb(247, 247, 247);
     background-color: rgb(69, 222, 100);
 }
 
 input {
-    padding: 8px 8px;
+    padding: 12px 15px;
     font-size: 20px;
     border-radius: 10px;
     transition: .2s;
@@ -80,7 +81,7 @@ h3 {
 
 
 #closebtn {
-    top: 32px;
+    top: 27px;
     left: 12px;
     position: absolute;
     color: rgb(255, 255, 255);
@@ -123,7 +124,8 @@ h1 {
 
 #timer {
     position: absolute;
-    left: 105px;
+    left: 100px;
+    margin-left: 20px;
 }
 
 #wrong {
