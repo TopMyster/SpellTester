@@ -12,6 +12,7 @@
     <a href="add.html"><button>New Words</button></a>
     <a href="game.html"><button>Start Session</button></a>
     <h1>🔥<span id="streak"></span>
+      <h1>🏆<span id="highscore"></span>
     <br><span id="day"></span></h2>
     
     <script>
@@ -66,6 +67,9 @@ setInterval(function() {
   updateStreak()
   showStreak()
 }, 1000)
+
+let highscore = parseInt(localStorage.getItem("highscore")) || 0;
+    document.getElementById('highscore').textContent = highscore;
 
 showStreak()
 

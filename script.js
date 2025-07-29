@@ -113,6 +113,10 @@ function addword() {
     letters.push(...newWords);
     localStorage.setItem('letters', JSON.stringify(letters));
     document.getElementById('words').textContent = letters;
+
+    if (input === '' || input === ' ') {
+        document.getElementById('words').textContent = 'Please enter some words'
+    }
 }
 
 function repeatbtn() {
@@ -120,7 +124,7 @@ function repeatbtn() {
     speak(txt, 0.8, 0.8)
 }
 
-let mins = 10
+let mins = 15
 document.getElementById('mins').textContent = mins
 setInterval(function() {
     mins -= 1
@@ -129,5 +133,10 @@ setInterval(function() {
         window.location.href = 'gameover.html'
     }
 }, 60000)
+
+document.getElementById('userinput').addEventListener('click', function() {
+    document.getElementById('userinput').value = ''
+})
+
 
 
