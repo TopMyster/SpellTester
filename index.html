@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spell Tester</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+   <h2 style="color: rgb(69, 222, 100);"> Spell Tester</h2>
+  <h1>Hello, please tell us your name?</h1>
     <input id="nameinput">
-    <button id="btn">sub</button>
+    <button id="btn">Submit</button>
     <script>
       window.onload = function() {
         let name = localStorage.getItem("name")
@@ -19,6 +21,8 @@
           localStorage.setItem("name", document.getElementById('nameinput').value)
            window.location.href = 'home.html'
         })
+      } else {
+        name = "Player"
       }
     }
     </script>
