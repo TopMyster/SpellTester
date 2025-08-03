@@ -13,5 +13,14 @@
     <h2 id="words">Please seperate the words with commas</h2>
     <a href="game.html"><button style="margin-top: 40px; width: 350px; height: 60px; background-color: rgb(69, 222, 100); color: rgb(247, 247, 247); border: 3px solid rgb(69, 222, 100);">Create Session</button></a>
     <script src="script.js"></script>
+    <script>
+        let mode = localStorage.getItem("mode")
+     if (mode === "dark") {
+        document.body.style.backgroundColor = 'black'
+        document.body.style.color = 'white'
+    } else if (mode === "light"){
+        document.body.style.backgroundColor = 'white'
+    }
+    </script>
 </body>
 </html>

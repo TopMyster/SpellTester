@@ -14,9 +14,8 @@
         document.getElementById('wrong').textContent = localStorage.getItem("wrong") || 0
         document.getElementById('right').textContent = localStorage.getItem("right") || 0
         window.onload = function() {
-            let mode = localStorage.getItem("mode")
-
-     if (mode === "dark") {
+        let mode = localStorage.getItem("mode")
+    if (mode === "dark") {
         document.body.style.backgroundColor = 'black'
     } else if (mode === "light"){
         document.body.style.backgroundColor = 'white'

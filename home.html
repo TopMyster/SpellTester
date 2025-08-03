@@ -20,9 +20,7 @@
         window.onload = function() {
     let name = localStorage.getItem("name")
     document.getElementById('welcome').textContent = `Welcome, ${name}`
-
     let mode = localStorage.getItem("mode")
-
      if (mode === "dark") {
         document.body.style.backgroundColor = 'black'
     } else if (mode === "light"){

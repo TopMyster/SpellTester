@@ -148,12 +148,4 @@ window.onload = function() {
     }
 }
 
-let mode = localStorage.getItem("mode")
 
-     if (mode === "dark") {
-        document.body.style.backgroundColor = 'black'
-        mode = "dark"
-    } else if (mode === "light"){
-        document.body.style.backgroundColor = 'white'
-        mode = "light"
-    }
