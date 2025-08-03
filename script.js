@@ -107,7 +107,7 @@ if (window.speechSynthesis.getVoices().length === 0) {
 }, 1000);
 
 function addword() {
-    const input = document.getElementById('newword').value;
+    const input = document.getElementById('newword').value.replace(/\s/g, "");
     const newWords = input
         .split(',')
     letters.push(...newWords);

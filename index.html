@@ -3,76 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Spell Tester</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Spell Tester</title>
 </head>
 <body>
-    <h2 style="color: rgb(69, 222, 100);"> Spell Tester</h2>
-    <h1 id="welcome"></h1>
-    <a href="add.html"><button>New Words</button></a>
-    <a href="game.html"><button>Start Session</button></a>
-    <h1>🔥<span id="streak"></span>
-    <br><span id="day"></span></h2>
-    <h1>🏆<span id="highscore"></span>
-    
+
+    <input id="nameinput">
+    <button id="btn">sub</button>
     <script>
-        window.onload = function() {
-    let name = localStorage.getItem("name")
-
-    if (!name) {
-        name = window.prompt('What is your name?')
-        if (name) {
-            localStorage.setItem("name", name)
-        } else {
-            name = "Player"
-        }
+      window.onload = function() {
+        let name = localStorage.getItem("name")
+       if (name) {
+        window.location.href = 'home.html'
+      } if (!name) {
+        document.getElementById('btn').addEventListener('click', function() {
+          localStorage.setItem("name", document.getElementById('nameinput').value)
+           window.location.href = 'home.html'
+        })
+      }
     }
-
-    document.getElementById('welcome').textContent = `Welcome, ${name}`
-}
-
-        function getToday() {
-  return new Date().toDateString()
-}
-
-function updateStreak() {
-  const lastDate = localStorage.getItem('lastDate')
-  let streak = Number(localStorage.getItem('streak')) || 0
-  const today = getToday()
-
-  if (lastDate === today) {
-    return streak
-    document.getElementById('day').textContent = 'day'
-  } else {
-    document.getElementById('day').textContent = 'days'
-  }
-
-  if (lastDate && (new Date(today) - new Date(lastDate) === 86400000)) {
-    streak += 1
-  } else {
-    streak = 1
-  }
-
-  localStorage.setItem('lastDate', today)
-  localStorage.setItem('streak', streak)
-  return streak
-}
-function showStreak() {
-  const streak = localStorage.getItem('streak') || 0
-  document.getElementById('streak').textContent = streak
-  
-}
-
-setInterval(function() {
-  updateStreak()
-  showStreak()
-}, 1000)
-
-let highscore = parseInt(localStorage.getItem("highscore")) || 0;
-    document.getElementById('highscore').textContent = highscore;
-
-showStreak()
-
     </script>
+    
 </body>
 </html>
