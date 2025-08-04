@@ -23,12 +23,12 @@
     let mode = localStorage.getItem("mode")
      if (mode === null) {
         mode = "light"
-        console.log("light mode on")
-    } if (mode === "dark") {
+    }if (mode === "dark") {
         document.body.style.backgroundColor = 'black'
     } if (mode === "light"){
         document.body.style.backgroundColor = 'white'
     } 
+}
 
 document.getElementById('mode').addEventListener('click', function() {
      let mode = localStorage.getItem("mode")
@@ -42,7 +42,6 @@ document.getElementById('mode').addEventListener('click', function() {
         localStorage.setItem("mode", "light")
     }
 })
-        }
 
 
 
