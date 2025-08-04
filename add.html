@@ -8,10 +8,13 @@
 </head>
 <body>
     <a href="index.html"><button id="closebtn">Back</button></a>
+    <h2 style="color: rgb(69, 222, 100);"> Spell Tester</h2>
+    <div style="background-color: rgb(69, 222, 100); position: relative; width: 750px; padding: 50px 20px; transform: translateX(-50%); left: 50%; border-radius: 20px;  box-shadow: 2px 2px 50px rgba(21, 21, 21, 0.052);">
     <input id="newword" placeholder="Words here">
     <button onclick="addword()">Add Words</button>
     <h2 id="words">Please seperate the words with commas</h2>
     <a href="game.html"><button style="margin-top: 40px; width: 350px; height: 60px; background-color: rgb(69, 222, 100); color: rgb(247, 247, 247); border: 3px solid rgb(69, 222, 100);">Create Session</button></a>
+</div>
     <script src="script.js"></script>
     <script>
         let mode = localStorage.getItem("mode")
