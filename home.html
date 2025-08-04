@@ -18,7 +18,8 @@
     <button id="mode" style="position: absolute; bottom: 5px; right: 5px; padding: 10px 15px;">⏾</button>
     <script>
         window.onload = function() {
-    
+    let name = localStorage.getItem("name")
+    document.getElementById('welcome').textContent = `Welcome, ${name}`
     let mode = localStorage.getItem("mode")
      if (mode === "dark") {
         document.body.style.backgroundColor = 'black'
