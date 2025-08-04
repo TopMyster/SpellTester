@@ -25,9 +25,10 @@
         document.body.style.backgroundColor = 'black'
     } else if (mode === "light"){
         document.body.style.backgroundColor = 'white'
-    } if (mode === null) {
+    } if (document.body.style.backgroundColor === 'white') {
         mode = "light"
     }
+    console.log(mode)
 }
 
 document.getElementById('mode').addEventListener('click', function() {
