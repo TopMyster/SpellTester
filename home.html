@@ -21,14 +21,13 @@
     let name = localStorage.getItem("name")
     document.getElementById('welcome').textContent = `Welcome, ${name}`
     let mode = localStorage.getItem("mode")
-     if (mode === "dark") {
+     if (mode === null) {
+        mode = "light"
+    } else if (mode === "dark") {
         document.body.style.backgroundColor = 'black'
     } else if (mode === "light"){
         document.body.style.backgroundColor = 'white'
-    } if (mode === null) {
-        mode = "light"
-    }
-    console.log(mode)
+    } 
 }
 
 document.getElementById('mode').addEventListener('click', function() {
