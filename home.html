@@ -20,13 +20,7 @@
         window.onload = function() {
     let name = localStorage.getItem("name")
     document.getElementById('welcome').textContent = `Welcome, ${name}`
-    let mode = localStorage.getItem("mode")
-    if (mode === "dark") {
-        document.body.style.backgroundColor = 'black'
-    } if (mode === "light"){
-        document.body.style.backgroundColor = 'white'
-    } 
-}
+} 
 
 document.getElementById('mode').addEventListener('click', function() {
      let mode = localStorage.getItem("mode")
