@@ -23,6 +23,7 @@
     let mode = localStorage.getItem("mode")
      if (mode === null) {
         mode = "light"
+        console.log("light mode on")
     } if (mode === "dark") {
         document.body.style.backgroundColor = 'black'
     } if (mode === "light"){
