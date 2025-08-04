@@ -8,9 +8,6 @@
 </head>
 <body>
     <a href="home.html"><button id="closebtn">End</button></a>
-    <div id="status">
-        <h3>Score: <span id="score"></span></h3>
-    </div>
     <h2 style="color: rgb(69, 222, 100);"> Spell Tester</h2>
     <button id="repeat" onclick="repeatbtn()">🔈</button><br>
     <input id="userinput"><br>
@@ -20,7 +17,6 @@
 let score = 0
 let pletters = []
 let txt
-
 let randomnum
 let userinput = document.getElementById('userinput').value
 let wrong = 0
