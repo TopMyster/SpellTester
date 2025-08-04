@@ -81,14 +81,13 @@ h3 {
 
 
 #closebtn {
-    top: 25px;
+    top: 15px;
     left: 17px;
     font-size: 15px;
     position: absolute;
     color: rgb(255, 255, 255);
     background-color: rgb(255, 46, 46);
     border: none;
-    position: fixed;
     padding: 10px 15px;
 }
 
