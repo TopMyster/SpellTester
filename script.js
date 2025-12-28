@@ -12,14 +12,14 @@ let right = 0
 function getPreferredVoice() {
     const voices = window.speechSynthesis.getVoices();
     const preferredVoices = ['Samantha',];
-    
+
     for (let preferred of preferredVoices) {
         const voice = voices.find(v => v.name.includes(preferred));
         if (voice) return voice;
     }
 
-    const femaleVoice = voices.find(v => 
-        v.name.toLowerCase().includes('female') || 
+    const femaleVoice = voices.find(v =>
+        v.name.toLowerCase().includes('female') ||
         v.name.toLowerCase().includes('woman') ||
         v.gender === 'female'
     );
@@ -29,11 +29,11 @@ function getPreferredVoice() {
 function speak(text, pitch = 0.3, rate = 0.3) {
     const utterance = new SpeechSynthesisUtterance(text);
     const voice = getPreferredVoice();
-    
+
     if (voice) {
         utterance.voice = voice;
     }
-    
+
     utterance.pitch = pitch
     utterance.rate = rate
     utterance.volume = 1.0
@@ -50,7 +50,7 @@ function random() {
 }
 
 if (window.speechSynthesis.getVoices().length === 0) {
-    window.speechSynthesis.addEventListener('voiceschanged', function() {
+    window.speechSynthesis.addEventListener('voiceschanged', function () {
         random()
     })
 } else {
@@ -58,29 +58,29 @@ if (window.speechSynthesis.getVoices().length === 0) {
 }
 
 
-    document.getElementById('submition').addEventListener('click', function() {
-        let userinput = document.getElementById('userinput').value
-        if (userinput === letter) { 
-            score += 5
-            txt = "Correct, Great Job! ,"
-            speak(txt, 0.8, 0.8)
-            document.getElementById('correction').style.color = 'rgba(60, 200, 88, 1)'
-            document.getElementById('correction').textContent = "Great Job!"
-            random()
-            right += 1 
-           
-        } else {
-            txt = "Almost there! Try again! ,"
-            document.getElementById('correction').textContent = "Last missed question: "+ letter
-            document.getElementById('correction').style.color = 'rgba(225, 43, 43, 1)'
-            speak(txt, 0.8, 0.8)
-            random() 
-            hearts -= 1
-            wrong += 1
-        }
-    })
+document.getElementById('submition').addEventListener('click', function () {
+    let userinput = document.getElementById('userinput').value
+    if (userinput === letter) {
+        score += 5
+        txt = "Correct, Great Job! ,"
+        speak(txt, 0.8, 0.8)
+        document.getElementById('correction').style.color = 'rgba(60, 200, 88, 1)'
+        document.getElementById('correction').textContent = "Great Job!"
+        random()
+        right += 1
 
-    setInterval(function() {
+    } else {
+        txt = "Almost there! Try again! ,"
+        document.getElementById('correction').textContent = "Last missed question: " + letter
+        document.getElementById('correction').style.color = 'rgba(225, 43, 43, 1)'
+        speak(txt, 0.8, 0.8)
+        random()
+        hearts -= 1
+        wrong += 1
+    }
+})
+
+setInterval(function () {
     document.getElementById('score').textContent = score;
     let highscore = parseInt(localStorage.getItem("highscore")) || 0;
     document.getElementById('highscore').textContent = highscore;
@@ -89,9 +89,9 @@ if (window.speechSynthesis.getVoices().length === 0) {
     }
 }, 1000);
 
- setInterval(function() {
+setInterval(function () {
     if (hearts === 1) {
-       document.getElementById('hearts').textContent = " ❤️"
+        document.getElementById('hearts').textContent = " ❤️"
     } else if (hearts === 2) {
         document.getElementById('hearts').textContent = " ❤️❤️"
     } else if (hearts === 3) {
@@ -126,7 +126,7 @@ function repeatbtn() {
 
 let mins = 15
 document.getElementById('mins').textContent = mins
-setInterval(function() {
+setInterval(function () {
     mins -= 1
     document.getElementById('mins').textContent = mins
     if (mins === 0) {
@@ -134,16 +134,16 @@ setInterval(function() {
     }
 }, 60000)
 
-document.getElementById('userinput').addEventListener('click', function() {
+document.getElementById('userinput').addEventListener('click', function () {
     document.getElementById('userinput').value = ''
 })
 
-window.onload = function() {
+window.onload = function () {
     let mode = localStorage.getItem("mode")
 
-     if (mode === "dark") {
+    if (mode === "dark") {
         document.body.style.backgroundColor = 'black'
-    } else if (mode === "light"){
+    } else if (mode === "light") {
         document.body.style.backgroundColor = 'white'
     }
 }
