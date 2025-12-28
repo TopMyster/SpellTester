@@ -35,9 +35,10 @@ input {
     border: 3px solid rgb(181, 181, 181);
     color: rgb(194, 194, 194);
     margin-right: 5px;
+    outline: none;
 }
 
-input:hover {
+input:focus {
     scale: 105%;
     transition: .2s;
 }
@@ -121,8 +122,8 @@ h1 {
 }
 
 #words {
-    font-size: 18px;
-    color: rgb(62, 62, 62);
+    font-size: 20px;
+    color: rgb(255, 255, 255);
 }
 
 #timer {

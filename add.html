@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpellTester</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <a href="index.html"><button id="closebtn">Back</button></a>
     <h2 style="color: rgb(69, 222, 100);"> SpellTester</h2>
-    <div style="background-color: rgb(69, 222, 100); position: relative; width: 750px; padding: 50px 20px; transform: translateX(-50%); left: 50%; border-radius: 20px;  box-shadow: 2px 2px 50px rgba(21, 21, 21, 0.052);">
-    <input id="newword" placeholder="Words here" style="width: 250px;">
-    <button onclick="addword()">Add</button>
-    <h2 id="words">Please seperate the words with commas</h2>
-    <a href="game.html"><button style="margin-top: 50px; width: 430px; height: 60px; ">Create Session</button></a>
-</div>
+    <div
+        style="background-color: rgb(69, 222, 100); position: relative; width: 750px; padding: 50px 20px; transform: translateX(-50%); left: 50%; border-radius: 20px;  box-shadow: 2px 2px 50px rgba(21, 21, 21, 0.052);">
+        <input id="newword" placeholder="Words here" style="width: 250px; border-radius: 16px;">
+        <button onclick="addword()">Add</button>
+        <h2 id="words">Please seperate the words with commas</h2>
+        <a href="game.html"><button style="margin-top: 50px; width: 430px; height: 60px; ">Create Session</button></a>
+    </div>
     <script src="script.js"></script>
     <script>
         let mode = localStorage.getItem("mode")
-     if (mode === "dark") {
-        document.body.style.backgroundColor = 'black'
-        document.body.style.color = 'white'
-    } else if (mode === "light"){
-        document.body.style.backgroundColor = 'white'
-    }
+        if (mode === "dark") {
+            document.body.style.backgroundColor = 'black'
+            document.body.style.color = 'white'
+        } else if (mode === "light") {
+            document.body.style.backgroundColor = 'white'
+        }
     </script>
 </body>
+
 </html>
